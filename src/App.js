@@ -1,7 +1,9 @@
 import React from 'react';
+import './App.css';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import { Container } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
+
 
 import Asia from "./pages/asia";
 import Europe from "./pages/europe";
@@ -15,13 +17,21 @@ import SearchBox from "./pages/search-box";
 import NavBar from "./components/NavBar";
 import RandomContent from "./components/random-content";
 import Countries from "./components/countries";
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
 
-import './App.css';
+const client = new ApolloClient ({
+  uri: 'https://countries.trevorblades.com/'
+});
+
 
 
 function App() {
 	return (
+
     <Router>
+    <ApolloProvider client={client}>
+    </ApolloProvider>
     <Container>
 		<NavBar />
     	  <Route exact path="/" component={Home} />
