@@ -14,6 +14,7 @@ import SearchBox from "./pages/search-box";
 
 import NavBar from "./components/NavBar";
 import RandomContent from "./components/random-content";
+import Countries from "./components/countries";
 
 import './App.css';
 
@@ -23,15 +24,15 @@ function App() {
     <Router>
     <Container>
 		<NavBar />
-      <SearchBox />
     	  <Route exact path="/" component={Home} />
 				<Route exact path="/africa" component={Africa} />
 				<Route exact path="/americas" component={Americas} />
 				<Route exact path="/asia" component={Asia} />
 				<Route exact path="/europe" component={Europe} />
 				<Route exact path="/oceania" component={Oceania} />
-
-        <RandomContent />
+    <RandomContent />
+    <SearchBox />
+    <Countries />
 		</Container>
     </Router>
 	);
